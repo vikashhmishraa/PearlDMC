@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Youtube, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { Facebook, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const footerLinks = {
   asiaPacific: [
@@ -41,14 +41,14 @@ const footerLinks = {
     { label: "Brochures", href: "/brochures" },
     { label: "FAQs", href: "/faq" },
   ],
-}
+};
 
 const socialLinks = [
   { icon: Facebook, href: "#", label: "Facebook" },
   { icon: Instagram, href: "#", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Youtube, href: "#", label: "YouTube" },
-]
+];
 
 export function Footer() {
   return (
@@ -58,27 +58,35 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
+            <Link href="/" className="flex items-center gap-3 mb-2">
               <Image
-                src="/images/pearldmc-logo.jpg"
+                src="/images/logo/pearldmc-logo.png"
                 alt="PearlDMC Logo"
                 width={48}
                 height={48}
                 className="rounded-full"
               />
-              <div>
-                <span className="font-serif text-xl font-bold text-background">PearlDMC</span>
-                <p className="text-[10px] text-background/60 uppercase tracking-[0.2em]">Global Destination Experts</p>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-white">
+                  Pearl<span className="font-light">DMC</span>
+                </span>
+
+                <span className="text-[10px] uppercase tracking-[0.3em] text-white">
+                  Global Destination Expert
+                </span>
               </div>
-            </div>
+            </Link>
+
             <p className="text-background/70 text-sm leading-relaxed mb-6 max-w-xs">
-              Your trusted global B2B destination management partner across Asia, Indian Ocean, Africa & Caribbean. Delivering exceptional travel experiences since 2007.
+              Your trusted global B2B destination management partner across
+              Asia, Indian Ocean, Africa & Caribbean. Delivering exceptional
+              travel experiences since 2007.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-3 mb-8">
               {socialLinks.map((social) => {
-                const Icon = social.icon
+                const Icon = social.icon;
                 return (
                   <a
                     key={social.label}
@@ -88,13 +96,15 @@ export function Footer() {
                   >
                     <Icon className="h-4 w-4 text-background" />
                   </a>
-                )
+                );
               })}
             </div>
 
             {/* Newsletter */}
             <div className="bg-background/5 rounded-xl p-5 border border-background/10">
-              <p className="font-medium text-background mb-2 text-sm">Trade Newsletter</p>
+              <p className="font-medium text-background mb-2 text-sm">
+                Trade Newsletter
+              </p>
               <p className="text-background/60 text-xs mb-4">
                 Get updates on new destinations, packages & industry news.
               </p>
@@ -240,13 +250,22 @@ export function Footer() {
               </p>
             </div>
             <div className="flex gap-6">
-              <Link href="/privacy" className="text-background/50 hover:text-background text-sm transition-colors">
+              <Link
+                href="/privacy"
+                className="text-background/50 hover:text-background text-sm transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-background/50 hover:text-background text-sm transition-colors">
+              <Link
+                href="/terms"
+                className="text-background/50 hover:text-background text-sm transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-background/50 hover:text-background text-sm transition-colors">
+              <Link
+                href="/cookies"
+                className="text-background/50 hover:text-background text-sm transition-colors"
+              >
                 Cookie Settings
               </Link>
             </div>
@@ -254,5 +273,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
