@@ -124,7 +124,7 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/pearldmc-logo.jpg"
+                src="/images/logo/pearldmc-logo.png"
                 alt="PearlDMC Logo"
                 width={48}
                 height={48}
