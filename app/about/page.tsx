@@ -145,11 +145,11 @@ const values: Value[] = [
 
 const team: TeamMember[] = [
   {
-    name: "Arjun Mehta",
+    name: "Vikas Mishra",
     title: "Chief Executive Officer",
-    region: "Mumbai, India",
+    region: "Delhi, India",
     bio: "17 years in destination management. Former VP at one of India's leading outbound tour operators. Arjun founded PearlDMC with a conviction that B2B travel deserved a more transparent and reliable partner — built in India, for the world.",
-    initials: "AM",
+    initials: "VM",
   },
   {
     name: "James Whitfield",
@@ -374,7 +374,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">
-                      Arjun Mehta
+                      Vikas M
                     </p>
                     <p className="text-xs text-muted-foreground">
                       CEO &amp; Co-Founder, PearlDMC
@@ -582,7 +582,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── TEAM ─────────────────────────────────────────────────────────── */}
-        <section className="py-20 px-4">
+        {/* <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
               <div>
@@ -601,7 +601,7 @@ export default function AboutPage() {
                   key={name}
                   className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary/25 transition-all duration-200 group"
                 >
-                  {/* Avatar */}
+                  
                   <div className="relative h-48 bg-muted flex items-center justify-center overflow-hidden">
                     <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                       <span className="font-serif text-2xl font-bold text-primary-foreground">
@@ -632,7 +632,7 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
         <section className="py-16 px-4 bg-muted/50 border-y border-border">

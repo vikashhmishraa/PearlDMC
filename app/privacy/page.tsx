@@ -1477,7 +1477,7 @@ const sections = [
       },
       {
         type: "p",
-        text: "Continued use of our services after the effective date of any changes constitutes your acceptance of the revised Policy. If you do not agree with the changes, you may close your partner account by notifying us in writing at partners@pearldmc.com.",
+        text: "Continued use of our services after the effective date of any changes constitutes your acceptance of the revised Policy. If you do not agree with the changes, you may close your partner account by notifying us in writing at b2b@pearldmc.com.",
       },
       {
         type: "highlight",
@@ -2044,7 +2044,7 @@ export default function PrivacyPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/register"
+              href="/agent/auth/register"
               className="px-8 py-4 rounded-xl text-sm font-semibold tracking-wide uppercase bg-background text-foreground hover:bg-background/90 transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 group"
             >
               Register as Partner

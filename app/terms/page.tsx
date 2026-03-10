@@ -386,7 +386,7 @@ const sections: Section[] = [
         type: "contact",
         items: [
           { label: "Legal & Compliance", value: "legal@pearldmc.com" },
-          { label: "Partner Support", value: "partners@pearldmc.com" },
+          { label: "Partner Support", value: "b2b@pearldmc.com" },
           {
             label: "Registered Address",
             value:
@@ -752,7 +752,7 @@ export default function TermsPage() {
                   </p>
                   <div className="flex flex-wrap gap-3 mt-4">
                     <Link
-                      href="/register"
+                      href="/agent/auth/register"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:-translate-y-0.5 group"
                     >
                       Register as Partner
@@ -800,7 +800,7 @@ export default function TermsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/register"
+              href="/agent/auth/register"
               className="px-8 py-4 rounded-xl text-sm font-semibold tracking-wide uppercase bg-background text-foreground hover:bg-background/90 transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 group"
             >
               Register as Partner

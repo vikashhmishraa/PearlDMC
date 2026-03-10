@@ -1,24 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare, Globe } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+  MessageSquare,
+  Globe,
+} from "lucide-react";
 
 const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    primary: "partners@pearldmc.com",
+    primary: "b2b@pearldmc.com",
     secondary: "reservations@pearldmc.com",
   },
   {
     icon: Phone,
     title: "Call Us",
     primary: "+63 2 8912 3456",
-    secondary: "+63 917 123 4567 (WhatsApp)",
+    secondary: "+91 7065 999 650 (WhatsApp)",
   },
   {
     icon: MapPin,
@@ -32,7 +40,7 @@ const contactInfo = [
     primary: "24/7 Global Operations",
     secondary: "Regional offices across all destinations",
   },
-]
+];
 
 const destinations = [
   "Philippines",
@@ -46,7 +54,7 @@ const destinations = [
   "Zanzibar, Tanzania",
   "Jamaica",
   "Multiple Destinations",
-]
+];
 
 const inquiryTypes = [
   "General Inquiry",
@@ -56,7 +64,7 @@ const inquiryTypes = [
   "MICE Inquiry",
   "Cruise Shore Excursions",
   "Other",
-]
+];
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -67,17 +75,17 @@ export function ContactSection() {
     destination: "",
     inquiryType: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setSubmitted(true)
-  }
+    e.preventDefault();
+    setIsSubmitting(true);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setIsSubmitting(false);
+    setSubmitted(true);
+  };
 
   return (
     <section id="contact" className="py-24 bg-muted">
@@ -91,7 +99,9 @@ export function ContactSection() {
             Start Your Global Partnership Today
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Ready to offer your clients unforgettable experiences across 10+ destinations? Get in touch with our team and receive competitive B2B rates within 24 hours.
+            Ready to offer your clients unforgettable experiences across 10+
+            destinations? Get in touch with our team and receive competitive B2B
+            rates within 24 hours.
           </p>
         </div>
 
@@ -99,19 +109,25 @@ export function ContactSection() {
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
             {contactInfo.map((info) => {
-              const Icon = info.icon
+              const Icon = info.icon;
               return (
                 <div key={info.title} className="flex gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium text-foreground mb-1">{info.title}</p>
-                    <p className="text-muted-foreground text-sm">{info.primary}</p>
-                    <p className="text-muted-foreground text-sm">{info.secondary}</p>
+                    <p className="font-medium text-foreground mb-1">
+                      {info.title}
+                    </p>
+                    <p className="text-muted-foreground text-sm">
+                      {info.primary}
+                    </p>
+                    <p className="text-muted-foreground text-sm">
+                      {info.secondary}
+                    </p>
                   </div>
                 </div>
-              )
+              );
             })}
 
             {/* Global Coverage */}
@@ -121,14 +137,21 @@ export function ContactSection() {
                 <p className="font-semibold text-foreground">Global Coverage</p>
               </div>
               <p className="text-muted-foreground text-sm mb-4">
-                With regional offices and local teams across all our destinations, we ensure seamless operations no matter where your clients travel.
+                With regional offices and local teams across all our
+                destinations, we ensure seamless operations no matter where your
+                clients travel.
               </p>
               <div className="flex flex-wrap gap-2">
-                {["Asia Pacific", "Indian Ocean", "Africa", "Caribbean"].map((region) => (
-                  <span key={region} className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full">
-                    {region}
-                  </span>
-                ))}
+                {["Asia Pacific", "Indian Ocean", "Africa", "Caribbean"].map(
+                  (region) => (
+                    <span
+                      key={region}
+                      className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full"
+                    >
+                      {region}
+                    </span>
+                  ),
+                )}
               </div>
             </div>
 
@@ -139,9 +162,12 @@ export function ContactSection() {
                   <MessageSquare className="h-5 w-5 text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary-foreground mb-1">Quick Response Guarantee</p>
+                  <p className="font-semibold text-primary-foreground mb-1">
+                    Quick Response Guarantee
+                  </p>
                   <p className="text-primary-foreground/80 text-sm">
-                    We respond to all inquiries within 24 hours. For urgent requests, use our 24/7 emergency hotline.
+                    We respond to all inquiries within 24 hours. For urgent
+                    requests, use our 24/7 emergency hotline.
                   </p>
                 </div>
               </div>
@@ -160,12 +186,21 @@ export function ContactSection() {
                     Thank You for Your Inquiry!
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Our team will review your message and get back to you within 24 hours.
+                    Our team will review your message and get back to you within
+                    24 hours.
                   </p>
-                  <Button 
+                  <Button
                     onClick={() => {
-                      setSubmitted(false)
-                      setFormData({ name: "", company: "", email: "", phone: "", destination: "", inquiryType: "", message: "" })
+                      setSubmitted(false);
+                      setFormData({
+                        name: "",
+                        company: "",
+                        email: "",
+                        phone: "",
+                        destination: "",
+                        inquiryType: "",
+                        message: "",
+                      });
                     }}
                     variant="outline"
                   >
@@ -178,7 +213,8 @@ export function ContactSection() {
                     Request Partnership Information
                   </h3>
                   <p className="text-muted-foreground mb-8">
-                    Fill out the form below and our partnerships team will contact you.
+                    Fill out the form below and our partnerships team will
+                    contact you.
                   </p>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -189,7 +225,9 @@ export function ContactSection() {
                           id="name"
                           placeholder="Your name"
                           value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
                           required
                           className="h-12"
                         />
@@ -200,7 +238,12 @@ export function ContactSection() {
                           id="company"
                           placeholder="Your company"
                           value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              company: e.target.value,
+                            })
+                          }
                           required
                           className="h-12"
                         />
@@ -215,7 +258,9 @@ export function ContactSection() {
                           type="email"
                           placeholder="you@company.com"
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
                           required
                           className="h-12"
                         />
@@ -227,7 +272,9 @@ export function ContactSection() {
                           type="tel"
                           placeholder="+1 234 567 890"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
                           className="h-12"
                         />
                       </div>
@@ -235,17 +282,26 @@ export function ContactSection() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="destination">Destination of Interest *</Label>
+                        <Label htmlFor="destination">
+                          Destination of Interest *
+                        </Label>
                         <select
                           id="destination"
                           value={formData.destination}
-                          onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              destination: e.target.value,
+                            })
+                          }
                           required
                           className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         >
                           <option value="">Select destination</option>
                           {destinations.map((dest) => (
-                            <option key={dest} value={dest}>{dest}</option>
+                            <option key={dest} value={dest}>
+                              {dest}
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -254,13 +310,20 @@ export function ContactSection() {
                         <select
                           id="inquiryType"
                           value={formData.inquiryType}
-                          onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              inquiryType: e.target.value,
+                            })
+                          }
                           required
                           className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         >
                           <option value="">Select inquiry type</option>
                           {inquiryTypes.map((type) => (
-                            <option key={type} value={type}>{type}</option>
+                            <option key={type} value={type}>
+                              {type}
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -273,13 +336,15 @@ export function ContactSection() {
                         placeholder="Tell us about your requirements, destinations of interest, expected volume, etc."
                         rows={5}
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                         required
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base"
                       disabled={isSubmitting}
                     >
@@ -294,7 +359,9 @@ export function ContactSection() {
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center">
-                      By submitting this form, you agree to our privacy policy. Your information will only be used for business correspondence.
+                      By submitting this form, you agree to our privacy policy.
+                      Your information will only be used for business
+                      correspondence.
                     </p>
                   </form>
                 </>
@@ -304,5 +371,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

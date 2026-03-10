@@ -64,22 +64,22 @@ const channels: Channel[] = [
   {
     icon: Mail,
     label: "B2B Partnerships",
-    value: "partners@pearldmc.com",
+    value: "b2b@pearldmc.com",
     sub: "Rate requests & registrations",
-    href: "mailto:partners@pearldmc.com",
+    href: "mailto:b2b@pearldmc.com",
   },
   {
     icon: Phone,
     label: "Operations Hotline",
-    value: "+91 22 6900 0000",
+    value: "+91 7065 999 650",
     sub: "24/7 on-ground emergencies",
-    href: "tel:+912269000000",
+    href: "tel:+917065999650",
   },
   {
     icon: Headphones,
     label: "MICE & Groups",
     value: "mice@pearldmc.com",
-    sub: "Groups 10 pax and above",
+    sub: "Groups 15 pax and above",
     href: "mailto:mice@pearldmc.com",
   },
   {
@@ -87,43 +87,53 @@ const channels: Channel[] = [
     label: "Book a Call",
     value: "Schedule via Calendly",
     sub: "30-min intro with our team",
-    href: "#",
+    href: "https://calendly.com/pearldmc/30min",
   },
 ];
 
 // ── Global offices ────────────────────────────────────────────────────────────
 const offices: Office[] = [
   {
-    city: "Mumbai",
+    city: "Bali",
+    country: "Indonesia",
+    flag: "🇮🇩",
+    role: "Regional Office",
+    address: "Jln Kartika plaza 1, Kuta, Bali, Indonesia. 80361",
+    phone: "+62 361 234567",
+    email: "b2b@pearldmc.com",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM GMT+8",
+  },
+  {
+    city: "Manila",
+    country: "Philippines",
+    flag: "🇵🇭",
+    role: "Asia Pacific Office",
+    address: "Makati City, Metro Manila, Philippines. 1226",
+    phone: "+63 969 207 6284",
+    email: "b2b@pearldmc.com",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM GMT+8",
+  },
+  {
+    city: "Noida",
     country: "India",
     flag: "🇮🇳",
     role: "Head Office — Asia Pacific",
     address:
-      "Level 12, Crescenzo Building, G Block BKC, Bandra Kurla Complex, Mumbai 400 051",
-    phone: "+91 22 6900 0000",
-    email: "mumbai@pearldmc.com",
-    hours: "Mon–Fri, 9:00 AM – 6:00 PM IST",
+      "C-618, Spectrum Metro Mall, Sector 75, Noida, Uttar Pradesh, India. 201301",
+    phone: "+91 7065999650",
+    email: "b2b@pearldmc.com",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM IST",
   },
   {
-    city: "New Delhi",
+    city: "Ahmedabad",
     country: "India",
     flag: "🇮🇳",
-    role: "North India Office",
+    role: "Representative Office",
     address:
-      "Unit 801, Tower B, Unitech Cyber Park, Sector 39, Gurugram 122 003",
-    phone: "+91 124 4100 200",
-    email: "delhi@pearldmc.com",
-    hours: "Mon–Fri, 9:00 AM – 6:00 PM IST",
-  },
-  {
-    city: "Dubai",
-    country: "UAE",
-    flag: "🇦🇪",
-    role: "Middle East Office",
-    address: "Level 14, Boulevard Plaza Tower 1, Downtown Dubai",
-    phone: "+971 4 555 0100",
-    email: "dubai@pearldmc.com",
-    hours: "Sun–Thu, 9:00 AM – 6:00 PM GST",
+      "C-618, Spectrum Metro Mall, Sector 75, Noida, Uttar Pradesh, India. 201301",
+    phone: "+91 7065999650",
+    email: "b2b@pearldmc.com",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM IST",
   },
 ];
 
@@ -564,10 +574,26 @@ export default function ContactPage() {
                 </p>
                 <div className="flex gap-3">
                   {[
-                    { icon: Linkedin, label: "LinkedIn", href: "#" },
-                    { icon: Instagram, label: "Instagram", href: "#" },
-                    { icon: Facebook, label: "Facebook", href: "#" },
-                    { icon: Twitter, label: "Twitter / X", href: "#" },
+                    {
+                      icon: Linkedin,
+                      label: "LinkedIn",
+                      href: "https://linkedin.com/company/pearldmc",
+                    },
+                    {
+                      icon: Instagram,
+                      label: "Instagram",
+                      href: "https://instagram.com/pearldmc",
+                    },
+                    {
+                      icon: Facebook,
+                      label: "Facebook",
+                      href: "https://facebook.com/pearldmc",
+                    },
+                    {
+                      icon: Twitter,
+                      label: "Twitter / X",
+                      href: "https://x.com/PearlDMC",
+                    },
                   ].map(({ icon: Icon, label, href }) => (
                     <a
                       key={label}
@@ -772,7 +798,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/register"
+                href="/agent/auth/register"
                 className="px-8 py-4 rounded-xl text-sm font-semibold tracking-wide uppercase bg-background text-foreground hover:bg-background/90 transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 group"
               >
                 Register as Partner

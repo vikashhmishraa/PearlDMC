@@ -1,6 +1,6 @@
-import Image from "next/image"
-import { Check, Award, Users, Globe, Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { Check, Award, Users, Globe, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const benefits = [
   "Competitive B2B rates guaranteed",
@@ -9,21 +9,21 @@ const benefits = [
   "Real-time booking system",
   "24/7 emergency hotline",
   "Local expertise in every destination",
-]
+];
 
 const certifications = [
   { name: "PHILTOA", description: "Philippine Tour Operators" },
   { name: "ASTA", description: "American Society of Travel" },
   { name: "PATA", description: "Pacific Asia Travel Assoc." },
   { name: "IATA", description: "IATA Registered Agent" },
-]
+];
 
 const offices = [
   { city: "Manila", country: "Philippines", role: "HQ" },
   { city: "Bali", country: "Indonesia", role: "Regional" },
   { city: "Tokyo", country: "Japan", role: "Regional" },
   { city: "Male", country: "Maldives", role: "Regional" },
-]
+];
 
 export function AboutSection() {
   return (
@@ -42,7 +42,7 @@ export function AboutSection() {
                   className="object-cover"
                 />
               </div>
-              
+
               {/* Side Images */}
               <div className="col-span-5 flex flex-col gap-4">
                 <div className="relative h-36 rounded-2xl overflow-hidden shadow-lg">
@@ -64,7 +64,7 @@ export function AboutSection() {
               </div>
 
               {/* Bottom Images */}
-              <div className="col-span-5 relative h-44 rounded-2xl overflow-hidden shadow-lg -mt-8">
+              <div className="col-span-5 relative h-44 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/japan.jpg"
                   alt="Japan"
@@ -72,8 +72,8 @@ export function AboutSection() {
                   className="object-cover"
                 />
               </div>
-              
-              <div className="col-span-7 relative h-44 rounded-2xl overflow-hidden shadow-lg -mt-8">
+
+              <div className="col-span-7 relative h-44 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/south-africa.jpg"
                   alt="South Africa"
@@ -90,8 +90,12 @@ export function AboutSection() {
                   <Star className="h-7 w-7 text-accent-foreground" />
                 </div>
                 <div>
-                  <p className="font-serif text-3xl font-bold text-foreground">4.9/5</p>
-                  <p className="text-sm text-muted-foreground">Partner Satisfaction</p>
+                  <p className="font-serif text-3xl font-bold text-foreground">
+                    4.9/5
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Partner Satisfaction
+                  </p>
                 </div>
               </div>
             </div>
@@ -112,10 +116,15 @@ export function AboutSection() {
               Your Global DMC Partner Since 2007
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Founded in Manila, PearlDMC has grown to become a leading destination management company operating across Asia, Indian Ocean, Africa & Caribbean. We combine deep local knowledge with international service standards.
+              Founded in Manila, PearlDMC has grown to become a leading
+              destination management company operating across Asia, Indian
+              Ocean, Africa & Caribbean. We combine deep local knowledge with
+              international service standards.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Our team of 100+ travel professionals across 10+ destinations is dedicated to delivering exceptional service to travel agents, tour operators, cruise lines, and MICE organizers worldwide.
+              Our team of 100+ travel professionals across 10+ destinations is
+              dedicated to delivering exceptional service to travel agents, tour
+              operators, cruise lines, and MICE organizers worldwide.
             </p>
 
             {/* Benefits Grid */}
@@ -140,8 +149,12 @@ export function AboutSection() {
                 {offices.map((office) => (
                   <div key={office.city} className="text-center">
                     <p className="font-bold text-foreground">{office.city}</p>
-                    <p className="text-xs text-muted-foreground">{office.country}</p>
-                    <span className="text-[10px] text-primary font-medium">{office.role}</span>
+                    <p className="text-xs text-muted-foreground">
+                      {office.country}
+                    </p>
+                    <span className="text-[10px] text-primary font-medium">
+                      {office.role}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -157,7 +170,9 @@ export function AboutSection() {
                 {certifications.map((cert) => (
                   <div key={cert.name} className="text-center">
                     <p className="font-bold text-foreground">{cert.name}</p>
-                    <p className="text-xs text-muted-foreground">{cert.description}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {cert.description}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -168,7 +183,10 @@ export function AboutSection() {
                 <Users className="mr-2 h-4 w-4" />
                 Meet Our Team
               </Button>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              >
                 <Globe className="mr-2 h-4 w-4" />
                 Company Profile PDF
               </Button>
@@ -177,5 +195,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

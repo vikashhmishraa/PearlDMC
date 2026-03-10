@@ -96,18 +96,18 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a
-              href="mailto:partners@pearldmc.com"
+              href="mailto:b2b@pearldmc.com"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <Mail className="h-4 w-4" />
-              partners@pearldmc.com
+              b2b@pearldmc.com
             </a>
             <a
-              href="tel:+63289123456"
+              href="tel:+63 969 207 6284"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <Phone className="h-4 w-4" />
-              +63 2 8912 3456
+              +63 969 207 6284
             </a>
           </div>
           <div className="flex items-center gap-4 text-primary-foreground/80">
