@@ -1,20 +1,31 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useParams } from "next/navigation"
-import { 
-  MapPin, Calendar, Clock, DollarSign, CheckCircle, ArrowLeft, 
-  Globe, Users, Plane, Star, ChevronDown, ChevronUp, Send 
-} from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { InquiryModal } from "@/components/inquiry-modal"
-import { RelatedDestinations } from "@/components/related-destinations"
-import { getDestinationById, type TourPackage } from "@/lib/destinations-data"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import {
+  MapPin,
+  Calendar,
+  Clock,
+  DollarSign,
+  CheckCircle,
+  ArrowLeft,
+  Globe,
+  Users,
+  Plane,
+  Star,
+  ChevronDown,
+  ChevronUp,
+  Send,
+} from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { InquiryModal } from "@/components/inquiry-modal";
+import { RelatedDestinations } from "@/components/related-destinations";
+import { getDestinationById, type TourPackage } from "@/lib/destinations-data";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   cultural: { label: "Cultural", color: "bg-blue-100 text-blue-700" },
@@ -23,35 +34,32 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
   luxury: { label: "Luxury", color: "bg-amber-100 text-amber-700" },
   honeymoon: { label: "Honeymoon", color: "bg-pink-100 text-pink-700" },
   group: { label: "Group/Family", color: "bg-green-100 text-green-700" },
-}
+};
 
-function PackageCard({ 
-  pkg, 
+function PackageCard({
+  pkg,
   destinationName,
   onInquiry,
-  destinationSlug
-}: { 
-  pkg: TourPackage
-  destinationName: string
-  destinationSlug: string
-  onInquiry: (pkgName: string, price: number) => void 
+  destinationSlug,
+}: {
+  pkg: TourPackage;
+  destinationName: string;
+  destinationSlug: string;
+  onInquiry: (pkgName: string, price: number) => void;
 }) {
-  const [expanded, setExpanded] = useState(false)
-  const category = categoryLabels[pkg.category]
+  const [expanded, setExpanded] = useState(false);
+  const category = categoryLabels[pkg.category];
 
   return (
     <div className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300">
       <div className="grid md:grid-cols-[280px_1fr]">
         {/* Image */}
         <div className="relative h-48 md:h-full min-h-[200px]">
-          <Image
-            src={pkg.image}
-            alt={pkg.name}
-            fill
-            className="object-cover"
-          />
+          <Image src={pkg.image} alt={pkg.name} fill className="object-cover" />
           <div className="absolute top-3 left-3">
-            <span className={`text-xs font-medium px-2 py-1 rounded-full ${category.color}`}>
+            <span
+              className={`text-xs font-medium px-2 py-1 rounded-full ${category.color}`}
+            >
               {category.label}
             </span>
           </div>
@@ -86,10 +94,12 @@ function PackageCard({
 
           {/* Highlights */}
           <div className="mb-4">
-            <p className="text-sm font-medium text-foreground mb-2">Tour Highlights:</p>
+            <p className="text-sm font-medium text-foreground mb-2">
+              Tour Highlights:
+            </p>
             <div className="flex flex-wrap gap-2">
               {pkg.highlights.map((highlight) => (
-                <span 
+                <span
                   key={highlight}
                   className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground"
                 >
@@ -115,7 +125,10 @@ function PackageCard({
             {expanded && (
               <ul className="mt-3 space-y-2">
                 {pkg.inclusions.map((inclusion) => (
-                  <li key={inclusion} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <li
+                    key={inclusion}
+                    className="flex items-start gap-2 text-sm text-muted-foreground"
+                  >
                     <CheckCircle className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
                     {inclusion}
                   </li>
@@ -126,15 +139,15 @@ function PackageCard({
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3 mt-5 pt-4 border-t border-border">
-            <Link href={`/destinations/${destinationSlug}/packages/${pkg.id}`} className="flex-1">
-              <Button 
-                variant="outline" 
-                className="w-full"
-              >
+            <Link
+              href={`/destinations/${destinationSlug}/packages/${pkg.id}`}
+              className="flex-1"
+            >
+              <Button variant="outline" className="w-full">
                 View Full Details
               </Button>
             </Link>
-            <Button 
+            <Button
               className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={() => onInquiry(pkg.name, pkg.startingPrice)}
             >
@@ -145,17 +158,20 @@ function PackageCard({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default function DestinationDetailPage() {
-  const params = useParams()
-  const slug = params.slug as string
-  const destination = getDestinationById(slug)
+  const params = useParams();
+  const slug = params.slug as string;
+  const destination = getDestinationById(slug);
 
-  const [inquiryOpen, setInquiryOpen] = useState(false)
-  const [selectedPackage, setSelectedPackage] = useState<{ name: string; price: number } | null>(null)
-  const [filterCategory, setFilterCategory] = useState<string | null>(null)
+  const [inquiryOpen, setInquiryOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<{
+    name: string;
+    price: number;
+  } | null>(null);
+  const [filterCategory, setFilterCategory] = useState<string | null>(null);
 
   if (!destination) {
     return (
@@ -177,23 +193,23 @@ export default function DestinationDetailPage() {
         </div>
         <Footer />
       </main>
-    )
+    );
   }
 
   const handleInquiry = (pkgName: string, price: number) => {
-    setSelectedPackage({ name: pkgName, price })
-    setInquiryOpen(true)
-  }
+    setSelectedPackage({ name: pkgName, price });
+    setInquiryOpen(true);
+  };
 
   const handleGeneralInquiry = () => {
-    setSelectedPackage(null)
-    setInquiryOpen(true)
-  }
+    setSelectedPackage(null);
+    setInquiryOpen(true);
+  };
 
-  const categories = [...new Set(destination.packages.map(p => p.category))]
-  const filteredPackages = filterCategory 
-    ? destination.packages.filter(p => p.category === filterCategory)
-    : destination.packages
+  const categories = [...new Set(destination.packages.map((p) => p.category))];
+  const filteredPackages = filterCategory
+    ? destination.packages.filter((p) => p.category === filterCategory)
+    : destination.packages;
 
   return (
     <main className="min-h-screen bg-background">
@@ -213,8 +229,8 @@ export default function DestinationDetailPage() {
         </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           {/* Breadcrumb */}
-          <Link 
-            href="/destinations" 
+          <Link
+            href="/destinations"
             className="inline-flex items-center gap-2 text-background/80 hover:text-background text-sm mb-4 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -225,9 +241,13 @@ export default function DestinationDetailPage() {
             <div>
               <Badge className="bg-accent text-accent-foreground mb-3">
                 <Globe className="h-3 w-3 mr-1" />
-                {destination.region === "asia-pacific" ? "Asia Pacific" : 
-                 destination.region === "indian-ocean" ? "Indian Ocean" :
-                 destination.region === "africa" ? "Africa" : "Caribbean"}
+                {destination.region === "asia-pacific"
+                  ? "Asia Pacific"
+                  : destination.region === "indian-ocean"
+                    ? "Indian Ocean"
+                    : destination.region === "africa"
+                      ? "Africa"
+                      : "Caribbean"}
               </Badge>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-2">
                 {destination.name}
@@ -236,20 +256,22 @@ export default function DestinationDetailPage() {
                 <MapPin className="h-5 w-5" />
                 {destination.country}
               </p>
-              <p className="text-accent font-medium text-xl mt-2">{destination.tagline}</p>
+              <p className="text-accent font-medium text-xl mt-2">
+                {destination.tagline}
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent/90"
                 onClick={handleGeneralInquiry}
               >
                 Get B2B Quote
               </Button>
-              <Button 
+              <Button
                 size="lg"
                 variant="outline"
-                className="border-background text-background hover:bg-background/10"
+                className="border-primary text-primary hover:bg-transparent hover:border-white hover:text-white transition"
               >
                 Download Brochure
               </Button>
@@ -267,8 +289,12 @@ export default function DestinationDetailPage() {
                 <Calendar className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Best Time to Visit</p>
-                <p className="text-sm font-medium text-foreground">{destination.bestTimeToVisit}</p>
+                <p className="text-xs text-muted-foreground">
+                  Best Time to Visit
+                </p>
+                <p className="text-sm font-medium text-foreground">
+                  {destination.bestTimeToVisit}
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -277,7 +303,9 @@ export default function DestinationDetailPage() {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Currency</p>
-                <p className="text-sm font-medium text-foreground">{destination.currency}</p>
+                <p className="text-sm font-medium text-foreground">
+                  {destination.currency}
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -286,7 +314,9 @@ export default function DestinationDetailPage() {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Language</p>
-                <p className="text-sm font-medium text-foreground">{destination.language}</p>
+                <p className="text-sm font-medium text-foreground">
+                  {destination.language}
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -295,7 +325,9 @@ export default function DestinationDetailPage() {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Timezone</p>
-                <p className="text-sm font-medium text-foreground">{destination.timezone}</p>
+                <p className="text-sm font-medium text-foreground">
+                  {destination.timezone}
+                </p>
               </div>
             </div>
           </div>
@@ -321,7 +353,9 @@ export default function DestinationDetailPage() {
                   <Star className="h-4 w-4 fill-current" />
                   <Star className="h-4 w-4 fill-current" />
                 </div>
-                <span className="text-muted-foreground">Highly rated destination by our partners</span>
+                <span className="text-muted-foreground">
+                  Highly rated destination by our partners
+                </span>
               </div>
             </div>
             <div>
@@ -330,7 +364,7 @@ export default function DestinationDetailPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {destination.highlights.map((highlight) => (
-                  <div 
+                  <div
                     key={highlight}
                     className="flex items-center gap-2 bg-card rounded-lg px-3 py-2 border border-border"
                   >
@@ -353,7 +387,8 @@ export default function DestinationDetailPage() {
                 Tour Packages
               </h2>
               <p className="text-muted-foreground">
-                {destination.packages.length} packages available for {destination.name}
+                {destination.packages.length} packages available for{" "}
+                {destination.name}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -367,24 +402,34 @@ export default function DestinationDetailPage() {
                   variant={filterCategory === null ? "default" : "outline"}
                   size="sm"
                   onClick={() => setFilterCategory(null)}
-                  className={filterCategory === null ? "bg-primary text-primary-foreground" : ""}
+                  className={
+                    filterCategory === null
+                      ? "bg-primary text-primary-foreground"
+                      : ""
+                  }
                 >
                   All ({destination.packages.length})
                 </Button>
                 {categories.map((cat) => {
-                  const catInfo = categoryLabels[cat]
-                  const count = destination.packages.filter(p => p.category === cat).length
+                  const catInfo = categoryLabels[cat];
+                  const count = destination.packages.filter(
+                    (p) => p.category === cat,
+                  ).length;
                   return (
                     <Button
                       key={cat}
                       variant={filterCategory === cat ? "default" : "outline"}
                       size="sm"
                       onClick={() => setFilterCategory(cat)}
-                      className={filterCategory === cat ? "bg-primary text-primary-foreground" : ""}
+                      className={
+                        filterCategory === cat
+                          ? "bg-primary text-primary-foreground"
+                          : ""
+                      }
                     >
                       {catInfo.label} ({count})
                     </Button>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -392,7 +437,7 @@ export default function DestinationDetailPage() {
 
           <div className="space-y-6">
             {filteredPackages.map((pkg) => (
-              <PackageCard 
+              <PackageCard
                 key={pkg.id}
                 pkg={pkg}
                 destinationName={destination.name}
@@ -404,9 +449,11 @@ export default function DestinationDetailPage() {
 
           {filteredPackages.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No packages found for this category.</p>
-              <Button 
-                variant="link" 
+              <p className="text-muted-foreground">
+                No packages found for this category.
+              </p>
+              <Button
+                variant="link"
                 onClick={() => setFilterCategory(null)}
                 className="mt-2"
               >
@@ -428,21 +475,22 @@ export default function DestinationDetailPage() {
             Need a Custom Package?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-            Don't see exactly what you need? Our team specializes in creating tailor-made 
-            itineraries for {destination.name}. From FIT to large groups, we've got you covered.
+            Don't see exactly what you need? Our team specializes in creating
+            tailor-made itineraries for {destination.name}. From FIT to large
+            groups, we've got you covered.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            <Button
               size="lg"
               className="bg-background text-foreground hover:bg-background/90"
               onClick={handleGeneralInquiry}
             >
               Request Custom Itinerary
             </Button>
-            <Button 
+            <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
+              className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-white"
             >
               Contact Our {destination.name} Team
             </Button>
@@ -451,7 +499,7 @@ export default function DestinationDetailPage() {
       </section>
 
       {/* Other Destinations */}
-      <RelatedDestinations 
+      <RelatedDestinations
         currentDestinationId={destination.id}
         currentRegion={destination.region}
         limit={3}
@@ -459,7 +507,7 @@ export default function DestinationDetailPage() {
 
       <Footer />
 
-      <InquiryModal 
+      <InquiryModal
         isOpen={inquiryOpen}
         onClose={() => setInquiryOpen(false)}
         destinationName={destination.name}
@@ -467,5 +515,5 @@ export default function DestinationDetailPage() {
         packagePrice={selectedPackage?.price}
       />
     </main>
-  )
+  );
 }

@@ -60,7 +60,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-2">
               <Image
-                src="/images/logo/pearldmc-logo.png"
+                src="/images/logo/pearldmc-icon-white.png"
                 alt="PearlDMC Logo"
                 width={48}
                 height={48}

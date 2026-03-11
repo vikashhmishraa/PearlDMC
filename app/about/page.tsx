@@ -71,7 +71,7 @@ interface Accreditation {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const stats: Stat[] = [
-  { value: "17+", label: "Years Operating", sub: "Founded 2007" },
+  { value: "6+", label: "Years Operating", sub: "Founded 2007" },
   { value: "10+", label: "Destinations", sub: "4 Regions Worldwide" },
   { value: "1,000+", label: "Partner Agencies", sub: "Across 60 Countries" },
   { value: "98%", label: "Satisfaction Rate", sub: "Based on partner surveys" },

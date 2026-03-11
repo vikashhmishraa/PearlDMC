@@ -798,7 +798,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/agent/auth/register"
+                href="/agent/auth/signup"
                 className="px-8 py-4 rounded-xl text-sm font-semibold tracking-wide uppercase bg-background text-foreground hover:bg-background/90 transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 group"
               >
                 Register as Partner
